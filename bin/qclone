@@ -2,7 +2,11 @@
 
 clo() {
   if [ ! -d $1 ]; then
+    echo "cloning $2, branch $3, to $1"
     git clone "$2" "$1" -b "$3"
+    echo -e "\n"
+  else
+    echo "$1 already exists, skipping"
   fi
 }
 
@@ -12,15 +16,15 @@ clo vendor/xiaomi/selene https://github.com/TelegramAt25/android_vendor_xiaomi_s
 clo kernel/xiaomi/selene https://github.com/TelegramAt25/android_kernel_xiaomi_selene thirteen-stable
 
 # common
-clo hardware/mediatek https://github.com/LineageOS/android_hardware_mediatek lineage-20
+clo hardware/mediatek https://github.com/TelegramAt25/android_hardware_mediatek lineage-20
 clo hardware/xiaomi https://github.com/PixelExperience/hardware_xiaomi thirteen
 clo device/mediatek/sepolicy_vndr https://github.com/LineageOS/android_device_mediatek_sepolicy_vndr lineage-20
 
 # compat hacks
 
 # shims for camera
-if [ ! -d hardware/lineage/compat ]; then
-  clo hardware/custom/compat https://github.com/PixelExperience/hardware_custom_compat thirteen
+if [ ! -d hardware/custom/compat ]; then
+  clo hardware/lineage/compat https://github.com/LineageOS/android_hardware_lineage_compat lineage-20.0	
 fi
 
 # audio
