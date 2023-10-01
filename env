@@ -1,0 +1,9 @@
+export PS1='\[\033[38;5;241m\]\w \[\033[38;5;211m\]\$\[\033[0m\] '
+export PATH=~/.fukiame/bin:$PATH
+
+export KBUILD_BUILD_USER=fukiame
+export KBUILD_BUILD_HOST=rainfall
+export BUILD_USERNAME=fukiame
+export BUILD_HOSTNAME=rainfall
+
+export TZ=Asia/Ho_Chi_Minh

@@ -1,0 +1,27 @@
+#!/bin/bash
+
+clo() {
+  if [ ! -d $1 ]; then
+    git clone "$2" "$1" -b "$3"
+  fi
+}
+
+# device specific
+clo device/xiaomi/selene https://github.com/TelegramAt25/android_device_xiaomi_selene $1
+clo vendor/xiaomi/selene https://github.com/TelegramAt25/android_vendor_xiaomi_selene thirteen
+clo kernel/xiaomi/selene https://github.com/TelegramAt25/android_kernel_xiaomi_selene thirteen-stable
+
+# common
+clo hardware/mediatek https://github.com/LineageOS/android_hardware_mediatek lineage-20
+clo hardware/xiaomi https://github.com/PixelExperience/hardware_xiaomi thirteen
+clo device/mediatek/sepolicy_vndr https://github.com/LineageOS/android_device_mediatek_sepolicy_vndr lineage-20
+
+# compat hacks
+
+# shims for camera
+if [ ! -d hardware/lineage/compat ]; then
+  clo hardware/custom/compat https://github.com/PixelExperience/hardware_custom_compat thirteen
+fi
+
+# audio
+clo external/tinyxml https://github.com/PixelExperience/external_tinyxml thirteen
