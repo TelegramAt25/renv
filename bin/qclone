@@ -2,9 +2,9 @@
 
 clo() {
   if [ ! -d $1 ]; then
-    echo "cloning $2, branch $3, to $1"
+    echo "Cloning $2, branch $3"
     git clone "$2" "$1" -b "$3"
-    echo -e "\n"
+    echo
   else
     echo "$1 already exists, skipping"
   fi
