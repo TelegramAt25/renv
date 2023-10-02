@@ -29,3 +29,6 @@ fi
 
 # audio
 clo external/tinyxml https://github.com/PixelExperience/external_tinyxml thirteen
+
+# hw iface
+clo hardware/lineage/interfaces https://github.com/LineageOS/android_hardware_lineage_interfaces lineage-20.0
