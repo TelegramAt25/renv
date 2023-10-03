@@ -3,7 +3,7 @@
 export workdir=$(pwd)
 
 clo() {
-  case $5 in
+  case $4 in
     "overridable" )
       echo "deleting $1..."
       rm -rf "$1"
