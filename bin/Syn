@@ -1,0 +1,4 @@
+export workdir=$(pwd)
+cd ~/.fukiame
+git pull
+cd "$workdir"
