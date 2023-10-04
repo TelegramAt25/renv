@@ -17,7 +17,7 @@ clo() {
     git clone "$2" "$1" -b "$3"
     echo
   else
-    if [ SYNC == true ]; then
+    if [ $SYNC == true ]; then
       echo "syncing $1..."
       cd "$1"
       git pull
