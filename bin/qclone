@@ -17,10 +17,11 @@ clo() {
     git clone "$2" "$1" -b "$3"
     echo
   else
-    if [ $SYNC == true ]; then
+    if [[ $SYNC == "true" ]]; then
       echo "syncing $1..."
       cd "$1"
       git pull
+      SYNC=false
       cd $workdir
     else
       echo "$1 already exists and is not marked as updatable, skipping"
