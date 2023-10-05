@@ -23,6 +23,7 @@ clo() {
   fi
 }
 
+if [[ -z "$1" ]] then echo "u forgor dt branch" && exit 1; fi
 # device specific
 clo device/xiaomi/selene https://github.com/TelegramAt25/android_device_xiaomi_selene $1 updatable
 clo vendor/xiaomi/selene https://github.com/TelegramAt25/android_vendor_xiaomi_selene thirteen updatable
