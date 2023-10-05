@@ -3,25 +3,19 @@
 export workdir=$(pwd)
 
 clo() {
-  case $4 in
-    "overridable" )
+  if [[ $4 == "overridable" ]]; then
       echo "deleting $1..."
       rm -rf "$1"
-    ;;
-    "updatable" )
-      SYNC=true
-    ;;
-  esac
+  fi
   if [ ! -d $1 ]; then
     echo "Cloning $2, branch $3"
     git clone "$2" "$1" -b "$3"
     echo
   else
-    if [[ $SYNC == "true" ]]; then
+    if [[ $4 == "updatable" ]]; then
       echo "syncing $1..."
       cd "$1"
       git pull
-      SYNC=false
       cd $workdir
     else
       echo "$1 already exists and is not marked as updatable, skipping"
