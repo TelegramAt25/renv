@@ -41,5 +41,8 @@ if [ ! -d hardware/custom/compat ]; then
   clo hardware/lineage/compat https://github.com/LineageOS/android_hardware_lineage_compat lineage-20.0	
 fi
 
+# lineage iface
+clo hardware/lineage/interfaces https://github.com/LineageOS/android_hardware_lineage_interfaces loneage-20.0
+
 # audio
 clo external/tinyxml https://github.com/PixelExperience/external_tinyxml thirteen
