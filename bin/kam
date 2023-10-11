@@ -1,1 +1,1 @@
-curl $1.patch | git am -k
+curl $1.patch | sed 's/\[PATCH\]//' | git am -k
