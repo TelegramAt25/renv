@@ -1,1 +1,1 @@
-curl $1.patch | sed 's/\[PATCH\]//' | git am -k
+grep "$1" https && ( curl $1.patch | sed 's/\[PATCH\]//' | git am -k ) || echo wrong input
