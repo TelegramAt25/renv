@@ -1,1 +1,1 @@
-echo "$1" | grep https && ( curl $1.patch | nvim | patch -p1 --no-backup && curl $1.patch | git am ) || echo wrong input
+echo "$1" | grep https && ( curl $1.patch | vi | patch -p1 --no-backup && curl $1.patch | git am ) || echo wrong input
