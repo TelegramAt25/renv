@@ -1,1 +1,9 @@
-hpatch $1 | patch -p1 --no-backup
+if [[ ! -z $1 ]]; then
+  if [[ ! -z $2 ]]; then
+    git format-patch -$2 --stdout $1
+  else
+    git format-patch -1 --stdout $1
+  fi
+else
+  git format-patch -1 --stdout HEAD
+fi
