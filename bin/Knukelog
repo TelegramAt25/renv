@@ -1,0 +1,8 @@
+if [ "$1" == "--keep-notice" ]; then
+  git grep -lz . | xargs -0 sed -i -e 's/pr_notice_ratelimited/pr_debug/g'
+  git grep -lz . | xargs -0 sed -i -e 's/pr_notice/pr_debug/g'
+fi
+git grep -lz . | xargs -0 sed -i -e 's/pr_info_ratelimited/pr_debug/g'
+git grep -lz . | xargs -0 sed -i -e 's/pr_info/pr_debug/g'
+git grep -lz . | xargs -0 sed -i -e 's/dev_info_ratelimited/dev_dbg/g'
+git grep -lz . | xargs -0 sed -i -e 's/dev_info/dev_dbg/g'
