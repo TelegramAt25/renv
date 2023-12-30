@@ -26,23 +26,22 @@ clo() {
 if [[ -z "$1" ]]; then echo "u forgor dt branch" && exit 1; fi
 # device specific
 clo device/xiaomi/selene https://github.com/TelegramAt25/android_device_xiaomi_selene $1 updatable
-clo vendor/xiaomi/selene https://github.com/TelegramAt25/android_vendor_xiaomi_selene thirteen updatable
-clo kernel/xiaomi/selene https://github.com/TelegramAt25/android_kernel_xiaomi_selene thirteen-stable updatable
+clo vendor/xiaomi/selene https://github.com/TelegramAt25/android_vendor_xiaomi_selene lineage-21 updatable
+clo kernel/xiaomi/selene https://github.com/TelegramAt25/yuki_kernel_xiaomi_selene niigo updatable
 
 # common
-clo hardware/mediatek https://github.com/TelegramAt25/android_hardware_mediatek lineage-20 overridable
-clo hardware/xiaomi https://github.com/PixelExperience/hardware_xiaomi thirteen
-clo device/mediatek/sepolicy_vndr https://github.com/LineageOS/android_device_mediatek_sepolicy_vndr lineage-20 overridable
+clo hardware/mediatek https://github.com/TelegramAt25/android_hardware_mediatek lineage-21 overridable
+clo device/mediatek/sepolicy_vndr https://github.com/LineageOS/android_device_mediatek_sepolicy_vndr walmart_lineage-21 overridable
 
 # compat hacks
 
 # shims for camera
-if [ ! -d hardware/custom/compat ]; then
-  clo hardware/lineage/compat https://github.com/LineageOS/android_hardware_lineage_compat lineage-20.0	
-fi
+#if [ ! -d hardware/custom/compat ]; then
+#  clo hardware/lineage/compat https://github.com/LineageOS/android_hardware_lineage_compat lineage-20.0	
+#fi
 
 # lineage iface
 #clo hardware/lineage/interfaces https://github.com/LineageOS/android_hardware_lineage_interfaces lineage-20.0
 
 # audio
-clo external/tinyxml https://github.com/PixelExperience/external_tinyxml thirteen
+#clo external/tinyxml https://github.com/PixelExperience/external_tinyxml thirteen

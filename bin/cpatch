@@ -1,1 +1,1 @@
-echo "$1" | grep https && ( curl $1.patch | patch -p1 --no-backup ) || echo wrong input
+echo "$1" | grep https && ( curl $1.patch | patch -p1 --no-backup ) || echo failed

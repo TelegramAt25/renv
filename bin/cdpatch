@@ -1,1 +1,1 @@
-echo "$1" | grep https && ( curl $1.patch | patch -p1 --dry-run  ) || echo wrong input
+echo "$1" | grep https && ( curl $1.patch | patch -p1 --dry-run  ) || echo failed
