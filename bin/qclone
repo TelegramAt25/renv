@@ -37,7 +37,7 @@ clo device/mediatek/sepolicy_vndr https://github.com/LineageOS/android_device_me
 
 # shims for camera
 #if [ ! -d hardware/custom/compat ]; then
-#  clo hardware/lineage/compat https://github.com/LineageOS/android_hardware_lineage_compat lineage-20.0	
+#  clo hardware/lineage/compat https://github.com/LineageOS/android_hardware_lineage_compat lineage-20.0
 #fi
 
 # lineage iface
