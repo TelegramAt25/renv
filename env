@@ -3,6 +3,8 @@ export PATH=~/.fukiame/bin:$PATH
 
 export KBUILD_BUILD_USER=fukiame
 export KBUILD_BUILD_HOST=rainfall
+export TARGET_KERNEL_BUILD_USER=fukiame
+exoort TARGET_KERNEL_BUILD_HOST=beyond
 export BUILD_USERNAME=fukiame
 export BUILD_HOSTNAME=rainfall
 

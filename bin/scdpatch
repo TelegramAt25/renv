@@ -1,0 +1,1 @@
+echo "$1" | grep https && ( curl $1.patch | sed $2 | patch -p1 --dry-run  ) || echo failed
