@@ -1,4 +1,10 @@
+#!/bin/bash 
+
+sln=$(readlink -f "$0")
+spath=$(dirname "$sln")
+echo $spath
+
 export workdir=$(pwd)
-cd ~/.fukiame
+cd $spath
 git pull
 cd "$workdir"
