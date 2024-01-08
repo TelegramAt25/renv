@@ -1,0 +1,6 @@
+maindir=$(pwd)
+destdir=$1
+
+cd $destdir
+echo "$maindir" > ../_FUKP_MAINDIR
+echo "$destdir" > ../_FUKP_DESTDIR

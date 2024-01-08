@@ -1,0 +1,7 @@
+maindir="$(cat ../_FUKP_MAINDIR)"
+destdir="$(cat ../_FUKP_DESTDIR)"
+[ -z "$1" ] && echo "please specify a base git ref" && exit 2 || base_ref="$1"
+[ -z "$2" ] && echo "please specify a directory to store patches" && exit 2 || patchesdir="$2"
+
+git format-patch -o "$patchesdir/destdir" "$base_ref"
+cd "$maindir"

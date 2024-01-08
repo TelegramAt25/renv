@@ -1,0 +1,11 @@
+[ -z "$1" ] && echo "please specify patch dir" && exit 2
+
+maindir=$(pwd)
+patchesDir=$1
+
+find $patchesDir -type f -name \*.patch | rev | cut -d/ -f2- | rev | uniq | cut -d/ -f2- > TMP_PATCHES
+while read -r pdir; do
+  cd "$pdir" || echo "patchdir doesnt exist" ; break
+  git am "$patchesDir/$pdir/*.patch"
+  cd "$patchesDir"
+done < TMP_PATCHES
