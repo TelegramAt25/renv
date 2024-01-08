@@ -37,12 +37,12 @@ clo device/mediatek/sepolicy_vndr https://github.com/TelegramAt25/android_device
 # compat hacks
 
 # shims for camera
-#if [ ! -d hardware/custom/compat ]; then
-#  clo hardware/lineage/compat https://github.com/LineageOS/android_hardware_lineage_compat lineage-20.0
-#fi
+if [ ! -d hardware/custom/compat ]; then
+  clo hardware/lineage/compat https://github.com/LineageOS/android_hardware_lineage_compat lineage-20.0
+fi
 
 # lineage iface
 #clo hardware/lineage/interfaces https://github.com/LineageOS/android_hardware_lineage_interfaces lineage-20.0
 
 # audio
-#clo external/tinyxml https://github.com/PixelExperience/external_tinyxml thirteen
+clo external/tinyxml https://github.com/PixelExperience/external_tinyxml thirteen
