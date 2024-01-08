@@ -3,9 +3,11 @@
 maindir=$(pwd)
 patchesDir=$1
 
-find $patchesDir -type f -name \*.patch | rev | cut -d/ -f2- | rev | uniq | cut -d/ -f2- > TMP_PATCHES
+cd "$patchesDir"
+find . -type f -name \*.patch | rev | cut -d/ -f2- | rev | uniq | cut -d/ -f2- > "$maindir/TMP_PATCHES"
+cd "$maindir"
 while read -r pdir; do
   cd "$pdir" || echo "patchdir doesnt exist" ; break
   git am "$patchesDir/$pdir/*.patch"
-  cd "$patchesDir"
-done < TMP_PATCHES
+  cd "$maindir"
+done < "$maindir/TMP_PATCHES"
