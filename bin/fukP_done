@@ -1,5 +1,5 @@
-maindir="$(cat ../_FUKP_MAINDIR)"
-destdir="$(cat ../_FUKP_DESTDIR)"
+maindir="$(cat ../_FUKP_MAINDIR)" || exit 1
+destdir="$(cat ../_FUKP_DESTDIR)" || exit 1
 [ -z "$1" ] && echo "please specify a base git ref" && exit 2 || base_ref="$1"
 [ -z "$2" ] && echo "please specify a directory to store patches" && exit 2 || patchesdir="$2"
 
