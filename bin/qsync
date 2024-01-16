@@ -1,1 +1,1 @@
-repo sync -c --no-clone-bundle --no-tags --force-sync $1
+repo sync -c --no-clone-bundle --no-tags --force-sync --prune $1
