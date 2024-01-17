@@ -31,7 +31,7 @@ clo device/xiaomi/selene https://github.com/TelegramAt25/android_device_xiaomi_s
 clo vendor/xiaomi/selene https://github.com/TelegramAt25/legacy_vendor_xiaomi_selene 14 updatable
 
 if [[ "$2" == "d" ]]; then
-  clo device/xiaomi/selene https://github.com/TelegramAt25/android_device_xiaomi_selene-kernel u updatable
+  clo device/xiaomi/selene-kernel https://github.com/TelegramAt25/android_device_xiaomi_selene-kernel u updatable
   clo hardware/mediatek https://github.com/TelegramAt25/android_hardware_mediatek lineage-21 overridable
 else
   clo kernel/xiaomi/selene https://github.com/TelegramAt25/yuki_kernel_xiaomi_selene niigo updatable
