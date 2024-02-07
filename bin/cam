@@ -1,1 +1,1 @@
-echo "$1" | grep https && ( curl $1.patch | sed 's/\[PATCH\]//' | git am -k ) || echo failed
+echo "$1" | grep https && ( curl $1.patch | sed 's/\[PATCH\] //' | git am -k ) || echo failed
