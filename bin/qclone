@@ -32,7 +32,7 @@ clo kernel/xiaomi/selene https://github.com/TelegramAt25/yuki_kernel_xiaomi_sele
 
 # common
 clo hardware/mediatek https://github.com/TelegramAt25/android_hardware_mediatek lineage-21 overridable
-clo device/mediatek/sepolicy_vndr https://github.com/TelegramAt25/android_device_mediatek_sepolicy_vndr walmart_lineage-21
+clo device/mediatek/sepolicy_vndr https://github.com/TelegramAt25/android_device_mediatek_sepolicy_vndr walmart_lineage-21 overridable
 
 # compat hacks
 
