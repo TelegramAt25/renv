@@ -46,7 +46,3 @@ fi
 
 # audio
 clo external/tinyxml https://github.com/PixelExperience/external_tinyxml thirteen
-
-# miui cameruh
-clo vendor/xiaomi/miuicamera https://github.com/Positron-B/vendor_xiaomi_miuicamera main
-clo vendor/xiaomi/miuicamera-selene https://github.com/TelegramAt25/android_vendor_xiaomi_miuicamera-selene r
