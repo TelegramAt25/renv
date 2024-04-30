@@ -1,0 +1,51 @@
+#!/bin/sh
+
+set -e
+
+if ! command -v curl >/dev/null;
+then
+  echo "Please install curl" 1>&2
+  exit 1
+fi
+
+if ! command -v jq >/dev/null;
+then
+  echo "Please install jq" 1>&2
+  exit 1
+fi
+
+[ "$1" = "" ] && { echo "usage: $(basename "$0") <gitiles_url>" 1>&2; exit 1; }
+URL="$1"
+
+# Skip the first line from the json output,
+# see https://github.com/google/gitiles/issues/142
+LOG_MESSAGE_JSON=$(curl -s "${URL}?format=JSON" | tail -n +2)
+
+COMMIT=$(printf '%s' "$LOG_MESSAGE_JSON" | jq -r .commit)
+AUTHOR=$(printf '%s' "$LOG_MESSAGE_JSON" | jq -r .author.name)
+EMAIL=$(printf '%s' "$LOG_MESSAGE_JSON" | jq -r .author.email)
+
+# Reformat the date from the git log format
+# to the RFC-5322 format used in git format-patch
+DATE=$(printf '%s' "$LOG_MESSAGE_JSON" | jq -r '.author.time | strptime("%a %b %d %H:%M:%S %Y") | strftime("%a, %d %b %Y %H:%M:%S") + .[8]')
+COMMIT_MESSAGE=$(printf '%s' "$LOG_MESSAGE_JSON" | jq -r .message)
+
+# In case you push to a different gerrit instance, expand the old gerrit
+# Change-Id and Bug tags and reference to them with different tags.
+#GERRIT_BASE_URL="https://gerrit-review.googlesource.com/"
+#GERRIT_QUERY_URL="${GERRIT_BASE_URL}/#/q/"
+#COMMIT_MESSAGE=$(echo "$COMMIT_MESSAGE" | sed -e "s@^Change-Id: \\(.*\\)\$@Orig-Change-Id: ${GERRIT_BASE_URL}\\1@g")
+#COMMIT_MESSAGE=$(echo "$COMMIT_MESSAGE" | sed -e 's/^Bug: /Orig-Bug: /g')
+
+cat <<EOM
+From $COMMIT Mon Sep 17 00:00:00 2001
+From: $AUTHOR <${EMAIL}>
+Date: $DATE
+Subject: [PATCH] $COMMIT_MESSAGE
+---
+
+EOM
+
+DIFF_TEXT=$(curl -s "${URL}^!/?format=TEXT" | base64 -d)
+
+printf '%s\n' "$DIFF_TEXT"
