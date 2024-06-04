@@ -31,8 +31,8 @@ clo vendor/xiaomi/selene https://github.com/25ji-Telegram-de/android_vendor_xiao
 clo kernel/xiaomi/selene https://github.com/25ji-Telegram-de/android_kernel_xiaomi_selene yuki updatable
 
 # common
-clo hardware/mediatek https://github.com/LineageOS/android_hardware_mediatek lineage-21 overridable
-clo device/mediatek/sepolicy_vndr https://github.com/LineageOS/android_device_mediatek_sepolicy_vndr lineage-21 overridable
+clo hardware/mediatek https://github.com/25ji-Telegram-de/android_hardware_mediatek fourteen overridable
+clo device/mediatek/sepolicy_vndr https://github.com/25ji-Telegram-de/android_device_mediatek_sepolicy_vndr fourteen overridable
 
 # compat hacks
 
