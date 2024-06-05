@@ -8,4 +8,7 @@ export TARGET_KERNEL_BUILD_HOST=beyond
 export BUILD_USERNAME=fukiame
 export BUILD_HOSTNAME=rainfall
 
+alias vi=nvim
+export EDITOR=nvim
+
 export TZ=Asia/Ho_Chi_Minh
