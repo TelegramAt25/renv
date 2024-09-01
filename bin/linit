@@ -1,0 +1,14 @@
+#!/bin/bash
+
+LMDIR=.repo/local_manifests
+[ -z "$1" ] && { echo "please specify a branch" && exit 1 ; }
+
+if [ ! -d "$LMDIR" ]; then
+    git clone https://github.com/fukiame/local_manifests-blossom $LMDIR -b $1
+else
+    cd "$LMDIR"
+    git reset --hard
+    git checkout $1
+    git fetch origin $1
+    git reset --hard origin/$1
+fi
