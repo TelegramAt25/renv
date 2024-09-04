@@ -1,4 +1,0 @@
-export workdir=$(pwd)
-cd .repo/local_manifests
-git pull
-cd "$workdir"
