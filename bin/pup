@@ -1,10 +1,30 @@
 if [ -z "$2" ]; then
-  A=$(curl -T "$1" https://pixeldrain.com/api/file/)
+  echo "apparently pixeldrain needs api key for this endpoi now"
+  exit 1
 elif [ "$2" == "in" ]; then
   read -s I
+  if [ -z $I ]; then
+    echo "blank bhaie"
+    exit 1
+  fi
   A=$(curl -T "$1" -u :$I https://pixeldrain.com/api/file/)
 else
   A=$(curl -T "$1" -u :$2 https://pixeldrain.com/api/file/)
 fi
 AA=$(echo $A | cut -d'"' -f4)
 echo -e "\n    https://pixeldrain.com/u/$AA\n"
+
+mesg() {
+    curl -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
+      -d chat_id="${CHAT_ID}" \
+      -d "disable_web_page_preview=true" \
+      -d "parse_mode=html" \
+      -d text="$1"
+}
+
+if [ ! -z "$BOT_TOKEN" ] && [ ! -z "$CHAT_ID" ]; then
+  echo "$MESSAG" > TMP_MSG
+  echo "https://pixeldrain.com/u/$AA" >> TMP_MSG
+  echo "sha1sum: "$(sha1sum "$1") >> TMP_MSG
+  mesg "$(cat TMP_MSG)" && rm TMP_MSG
+fi
