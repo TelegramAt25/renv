@@ -3,7 +3,7 @@
 export workdir=$(pwd)
 
 clo() {
-  if [[ $4 == "overridable" ]]; then
+  if [ $4 == "overridable" ]; then
       echo "deleting $1..."
       rm -rf "$1"
   fi
@@ -12,7 +12,7 @@ clo() {
     git clone "$2" "$1" -b "$3"
     echo
   else
-    if [[ $4 == "updatable" ]]; then
+    if [ $4 == "updatable" ]; then
       echo "syncing $1..."
       cd "$1"
       git pull
@@ -23,7 +23,7 @@ clo() {
   fi
 }
 
-if [[ -z "$1" ]]; then echo "u forgor dt branch" && exit 1; fi
+if [ -z "$1" ]; then echo "u forgor dt branch" && exit 1; fi
 
 # device specific
 clo device/xiaomi/selene https://git.gay/fukiame/android_device_xiaomi_selene $1 updatable
