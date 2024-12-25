@@ -2,6 +2,13 @@
 #
 # ...exists to not have ugly looking code blocks in ci lmao
 
+for E in BOT_TOKEN CHAT_ID ; do
+    [ -z "${!E}" ] && {
+        echo "$E not set, balling"
+        exit 1
+    }
+done
+
 case $1 in
   msg)
     curl -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
