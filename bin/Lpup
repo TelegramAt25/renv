@@ -1,4 +1,4 @@
-[ -z "${!PD_TOK}" ] && {
+[ -z "${PD_TOK}" ] && {
     echo "PD_TOK not set, balling"
     exit 1
 }
