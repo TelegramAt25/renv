@@ -2,4 +2,4 @@
     echo "PD_TOK not set, balling"
     exit 1
 }
-pup "$(find . -name "*.zip" -print0 | xargs -r -0 ls -1 -t | head -1)" $PD_TOK
+pup "$(find ./out/target/product -name "*.zip" -print0 | xargs -r -0 ls -1 -t | head -1)" $PD_TOK
