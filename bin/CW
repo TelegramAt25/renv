@@ -1,5 +1,5 @@
 #!/bin/bash
 
 tg_utils.sh msg "$1"
-( $2 ) || tg_utils.sh msg "$4" && exit 1
+$2 || tg_utils.sh msg "$4" && exit 1
 tg_utils.sh msg "$3"
