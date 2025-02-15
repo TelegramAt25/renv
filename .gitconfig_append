@@ -1,0 +1,17 @@
+[alias]
+	cp = cherry-pick
+	c = commit -s
+	re = revert
+	rea = revert --abort
+	rec = revert --continue
+	rb = rebase
+	ac = am --continue
+	ab = am --abort
+	as = am --skip
+	lo = log --oneline
+	un = diff --name-only --diff-filter=U --relative
+	bl = blame
+	tr = log --graph --oneline
+	ck = checkout
+	ss = show --stat
+	mg = merge
