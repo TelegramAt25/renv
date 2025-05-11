@@ -1,6 +1,10 @@
 [alias]
 	cp = cherry-pick
+	cpc = cherry-pick --continue
+	cpa = cherry-pick --abort
+	cps = cherry-pick --skip
 	c = commit -s
+	ca = commit -s --amend
 	re = revert
 	rea = revert --abort
 	rec = revert --continue
@@ -15,3 +19,4 @@
 	ck = checkout
 	ss = show --stat
 	mg = merge
+	cl = clone
