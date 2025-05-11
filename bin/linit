@@ -3,9 +3,15 @@
 LMDIR=.repo/local_manifests
 [ -z "$1" ] && { echo "please specify a branch" && exit 1 ; }
 
+read -s I
+if [ -z $I ]; then
+  echo "blank bhaie"
+  exit 1
+fi
+
 if [ -d "$LMDIR" ]; then
     rm -rf "$LMDIR"
 fi
 
-git clone -q $2 $LMDIR -b $1
+git clone -q $I $LMDIR -b $1
 rm -rf "$LMDIR/.git"
