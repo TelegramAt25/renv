@@ -3,12 +3,9 @@
 LMDIR=.repo/local_manifests
 [ -z "$1" ] && { echo "please specify a branch" && exit 1 ; }
 
-if [ ! -d "$LMDIR" ]; then
-    git clone $2 $LMDIR -b $1
-else
-    cd "$LMDIR"
-    git reset --hard
-    git checkout $1
-    git fetch origin $1
-    git reset --hard origin/$1
+if [ -d "$LMDIR" ]; then
+    rm -rf "$LMDIR"
 fi
+
+git clone -q $2 $LMDIR -b $1
+rm -rf "$LMDIR/.git"
