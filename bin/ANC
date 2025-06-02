@@ -6,4 +6,5 @@ if [ -z $I ]; then
   exit 1
 fi
 
-GIT_CONFIG_NOGLOBAL=1 GIT_CONFIG_NOSYSTEM=1 HOME= XDG_CONFIG_HOME= git clone -q $I $1
+GIT_CONFIG_NOGLOBAL=1 GIT_CONFIG_NOSYSTEM=1 HOME= XDG_CONFIG_HOME= git clone -q "$I" "$1"
+rm -rf "$1/.git"
