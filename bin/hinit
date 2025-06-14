@@ -1,0 +1,13 @@
+#!/bin/bash
+
+LMDIR=.repo/local_manifests
+[ -z "$1" ] && { echo "please specify a repo" && exit 1 ; }
+[ -z "$2" ] && { echo "please specify a branch" && exit 1 ; }
+
+if [ -d "$LMDIR" ]; then
+    cd "$LMDIR"
+    git pull
+    cd -
+fi
+
+git clone $1 $LMDIR -b $1
