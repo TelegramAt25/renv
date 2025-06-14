@@ -11,4 +11,4 @@ fi
 [ -z "$1" ] && { echo "please specify a repo" && exit 1 ; }
 [ -z "$2" ] && { echo "please specify a branch" && exit 1 ; }
 
-git clone $1 $LMDIR -b $1
+git clone $1 $LMDIR -b $2
