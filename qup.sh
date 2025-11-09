@@ -14,4 +14,4 @@ PS1="\w < "
 export PATH=~/.fukiame/bin:$PATH
 ' >> ~/.bashrc
 
-apt -v && sudo apt install neovim ripgrep git git-lfs imagemagick || :
+apt -v && sudo apt install neovim ripgrep git git-lfs imagemagick jq || :
