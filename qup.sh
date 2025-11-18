@@ -28,3 +28,5 @@ repo help || {
         cd -
     }
 }
+
+sudo mv /etc/profile.d/rbe_env.sh /etc/profile.d/rbe_env.sh.DISABLED
