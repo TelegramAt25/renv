@@ -22,7 +22,9 @@ apt -v && {
 } || :
 
 repo help || {
-    git cl https://github.com/akhilnarang/scripts
-    cd scripts
-    bash setup/android_build_env.sh || :
+    git cl https://github.com/akhilnarang/scripts && {
+        cd scripts
+        bash setup/android_build_env.sh || :
+        cd -
+    }
 }
