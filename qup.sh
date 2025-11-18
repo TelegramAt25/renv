@@ -14,4 +14,15 @@ PS1="\w < "
 export PATH=~/.fukiame/bin:$PATH
 ' >> ~/.bashrc
 
-apt -v && sudo apt install neovim ripgrep git git-lfs imagemagick jq || :
+apt -v && {
+    sudo apt update
+    sudo apt upgrade -y
+    sudo apt install neovim ripgrep git git-lfs imagemagick jq -y
+    sudo apt install libncurses5 libncurses5-dev build-essential -y || :
+} || :
+
+repo help || {
+    git cl https://github.com/akhilnarang/scripts
+    cd scripts
+    bash setup/android_build_env.sh || :
+}
