@@ -17,7 +17,7 @@ export PATH=~/.fukiame/bin:$PATH
 apt -v && {
     sudo apt update
     sudo apt upgrade -y
-    sudo apt install neovim ripgrep git git-lfs imagemagick jq -y
+    sudo apt install neovim ripgrep git git-lfs imagemagick jq zip unzip -y
     sudo apt install libncurses5 libncurses5-dev build-essential -y || :
 } || :
 
