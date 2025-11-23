@@ -21,6 +21,10 @@
 bucket="<your bucket name>"
 location="<your aws region, ie. us-west-2>"
 
+# endpoint, host
+host="${bucket}.s3.amazonaws.com"
+endpoint="${bucket}.s3-${location}.amazonaws.com"
+
 # AWS credentials
 aws_access_key_id="<your aws access key id>"
 aws_secret_access_key="<your aws secret key id>"
@@ -98,11 +102,11 @@ function put_s3() {
 	file_name=`basename "$file_path"`
 
 	curl -s -X PUT -T "${file_path}" \
-	  -H "Host: ${bucket}.s3.amazonaws.com" \
+	  -H "Host: ${host}" \
 	  -H "Date: ${date_value}" \
 	  -H "Content-Type: ${content_type}" \
 	  -H "Authorization: AWS ${aws_access_key_id}:${signature}" \
-	  https://${bucket}.s3-${location}.amazonaws.com/${file_name}
+	  https://${endpoint}/${file_name}
 }
 
 # entry point
