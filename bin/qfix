@@ -1,0 +1,1 @@
+sed -i 's|tmp_dir = .*|tmp_dir = "/data/data/com.termux/files/usr/tmp"|g' .repo/repo/ssh.py
