@@ -21,9 +21,12 @@
 bucket="<your bucket name>"
 location="<your aws region, ie. us-west-2>"
 
+# r2 account id
+r2_account_id="<your r2 account id>"
+
 # endpoint, host
-host="${bucket}.s3.amazonaws.com"
-endpoint="${bucket}.s3-${location}.amazonaws.com"
+host="${r2_account_id}.r2.cloudflarestorage.com"
+endpoint="${r2_account_id}.r2.cloudflarestorage.com"
 
 # AWS credentials
 aws_access_key_id="<your aws access key id>"
