@@ -29,4 +29,4 @@ repo help || {
     }
 }
 
-sudo mv /etc/profile.d/rbe_env.sh /etc/profile.d/rbe_env.sh.DISABLED
+[ "$1" -ne "rbe" ] || sudo mv /etc/profile.d/rbe_env.sh /etc/profile.d/rbe_env.sh.DISABLED
