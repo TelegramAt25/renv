@@ -1,0 +1,1 @@
+repo forall -c 'git format-patch -o '"$1"'$REPO_PATH $REPO_LREV'
