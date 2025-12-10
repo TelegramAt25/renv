@@ -1,1 +1,1 @@
-repo forall -c 'git format-patch -o '"$1"'/$REPO_PATH $REPO_LREV'
+repo forall -c 'git format-patch --full-index --zero-commit --no-signature --no-stat -N -o '"$1"'/$REPO_PATH $REPO_LREV'
