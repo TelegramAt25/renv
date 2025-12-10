@@ -1,1 +1,2 @@
 repo forall -c 'git format-patch --full-index --zero-commit --no-signature --no-stat -N -o '"$1"'/$REPO_PATH $REPO_LREV'
+find "$1" -type d -empty -delete
