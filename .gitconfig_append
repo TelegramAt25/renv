@@ -20,3 +20,4 @@
 	ss = show --stat
 	mg = merge
 	cl = clone
+	fp = format-patch --full-index --zero-commit --no-signature --no-stat -N
