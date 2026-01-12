@@ -1,1 +1,5 @@
-echo "$1" | grep https && ( curl $1.patch | sed "$2" | patch -p1 --no-backup ) || echo failed
+echo "$1" | grep https || echo failed
+[ -n "$KANG_SED" ] && sedarg="$KANG_SED" || sedarg="$2"
+(
+  curl "$1.patch" | sed "$sedarg" | patch -p1 --no-backup 
+) || echo failed
