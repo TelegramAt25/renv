@@ -1,14 +1,25 @@
 #export PS1='\[\033[38;5;241m\]\w \[\033[38;5;45m\]\$\[\033[0m\] '
-export PATH=~/.fukiame/bin:$PATH
 
-export KBUILD_BUILD_USER=fukiame
-export KBUILD_BUILD_HOST=rainfall
-export TARGET_KERNEL_BUILD_USER=fukiame
-export TARGET_KERNEL_BUILD_HOST=beyond
-export BUILD_USERNAME=fukiame
-export BUILD_HOSTNAME=rainfall
+sln=$(readlink -f "$0")
+spath=$(dirname "$sln")
+echo $spath
 
-alias vi=nvim
-export EDITOR=nvim
+export PATH="$spath"/bin:$PATH
 
-export TZ=Asia/Ho_Chi_Minh
+if [ -n "$1" ] ; then
+    echo 'export PATH="'"$spath"'"/bin:$PATH' >> ~/.bashrc
+fi
+
+if echo "$spath" | grep "fukiame" ; then
+    export KBUILD_BUILD_USER=fukiame
+    export KBUILD_BUILD_HOST=rainfall
+    export TARGET_KERNEL_BUILD_USER=fukiame
+    export TARGET_KERNEL_BUILD_HOST=beyond
+    export BUILD_USERNAME=fukiame
+    export BUILD_HOSTNAME=rainfall
+
+    alias vi=nvim
+    export EDITOR=nvim
+
+    export TZ=Asia/Ho_Chi_Minh
+fi
