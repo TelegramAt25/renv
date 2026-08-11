@@ -5,7 +5,7 @@
 	cps = cherry-pick --skip
 	c = commit -s
 	ca = commit -s --amend
-	re = revert
+	re = revert --no-edit
 	rea = revert --abort
 	rec = revert --continue
 	rb = rebase
