@@ -167,6 +167,8 @@ until [[ -z $1 ]]; do
     esac
 done
 
+[ -f "$FSTAB_FILE" ] || { echo "$FSTAB_FILE is not a file, exiting" ; exit 1 ; }
+
 calc_tabs "$FSTAB_FILE"
 fix_tabs "$FSTAB_FILE"
 
