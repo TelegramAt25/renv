@@ -103,13 +103,22 @@ Description: Fixes the fstab file to properly align each column using spaces or 
     --display
         Display the contents of the adjusted fstab file.
         If write is not supplied save the temporary file as /etc/fstab.new
-        
+
     --display-only
         Display the contents of the adjusted fstab file.
         If write is not supplied, delete the temporary file.
 
-    --write
+    -w  |  --write
         Move the current fstab to fstab.old and save the adjusted fstab
+
+    -s  |  --strip-comments
+        Strip all comments
+
+    -n  |  --no-backup
+        Only take effect if -w is used. Do not save old fstab to fstab.old
+
+    -a
+        Short for -w -s -n
 USAGE
 }
 
