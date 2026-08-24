@@ -117,6 +117,7 @@ USAGE
 
 USE_SPACES=1
 STRIP_COMMENTS=0
+BACKUP=1
 until [[ -z $1 ]]; do
     case "$1" in
         --tabs)
@@ -136,8 +137,12 @@ until [[ -z $1 ]]; do
             STRIP_COMMENTS=1
             shift
         ;;
-        --write)
+        -w|--write)
             WRITE_FSTAB=1
+            shift
+        ;;
+        -n|--no-backup)
+            BACKUP=0
             shift
         ;;
         *)
@@ -155,8 +160,12 @@ if [[ $DISPLAY_OUTPUT ]]; then
 fi
 
 if [[ $WRITE_FSTAB ]]; then
-    echo "Replacing current fstab, backup saved as fstab.old"
-    mv "$FSTAB_FILE"{,.old}
+    if [[ $BACKUP ]]; then
+        echo "Replacing current fstab, backup saved as fstab.old"
+        mv "$FSTAB_FILE"{,.old}
+    else
+        echo "overwriting old fstab"
+    fi
     mv "$FSTAB_FILE"{.new,}
 else
     if [[ $DELETE_TEMP ]]; then
