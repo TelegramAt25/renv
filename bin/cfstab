@@ -19,6 +19,7 @@ function fix_tabs {
             IFS=$OIFS
             output=
             local comments
+            local cf
             read -ra cols <<< "$line"
             for index in {0..3}; do
                 col=${cols[index]}
@@ -31,7 +32,8 @@ function fix_tabs {
             if [[ $(echo "$line" | grep '#') ]]; then
                 comments=" #$(echo "$line" | cut -sd# -f2-)"
             fi
-            echo -e "$output ${cols[4]} ${cols[5]}$comments" >> "$1.new"
+            [ -z "${cols[5]}" ] || cf=" ${cols[5]}"
+            echo -e "$output ${cols[4]}$cf$comments" >> "$1.new"
         fi
     done
 }
