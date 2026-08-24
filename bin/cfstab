@@ -145,6 +145,12 @@ until [[ -z $1 ]]; do
             BACKUP=0
             shift
         ;;
+        -a)
+            WRITE_FSTAB=1
+            STRIP_COMMENTS=1
+            BACKUP=0
+            shift
+        ;;
         *)
             FSTAB_FILE="$1"
             shift
