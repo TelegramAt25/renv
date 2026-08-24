@@ -175,7 +175,7 @@ if [[ $DISPLAY_OUTPUT ]]; then
 fi
 
 if [[ $WRITE_FSTAB ]]; then
-    if [[ $BACKUP ]]; then
+    if [[ $BACKUP == 1 ]]; then
         echo "Replacing current fstab, backup saved as fstab.old"
         mv "$FSTAB_FILE"{,.old}
     else
