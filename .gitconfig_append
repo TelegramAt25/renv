@@ -19,5 +19,8 @@
 	ck = checkout
 	ss = show --stat
 	mg = merge
+	mgs = merge --signoff
+	mgc = merge --continue
+	mga = merge --abort
 	cl = clone
 	fp = format-patch --full-index --zero-commit --no-signature --no-stat -N
